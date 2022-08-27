@@ -1,6 +1,6 @@
 import React from 'react';
 import {ShopItemFunc} from './components/functional'
-import { ShopItemClass } from './components/classBased';
+import {ShopItemClass} from './components/classBased';
 import logo from './logo.svg';
 import './App.css';
 import './styles/main.css';
