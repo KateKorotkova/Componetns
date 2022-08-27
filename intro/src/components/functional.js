@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 
 const ShopItemFunc = ({item}) => {
@@ -20,6 +21,11 @@ const ShopItemFunc = ({item}) => {
             </div>
         </>
     );
+}
+
+
+ShopItemFunc.propTypes = {
+    item: PropTypes.object.isRequired
 }
 
 

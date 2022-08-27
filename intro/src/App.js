@@ -1,7 +1,7 @@
 import React from 'react';
 import {ShopItemFunc} from './components/functional'
 import {ShopItemClass} from './components/classBased';
-import logo from './logo.svg';
+import {item} from './dtos/item'
 import './App.css';
 import './styles/main.css';
 
@@ -9,7 +9,7 @@ import './styles/main.css';
 
 function App() {
   
-  const item = {
+  const itemAnon = {
     brand: 'Tiger of Sweden',
     title: 'Leonard coat',
     description: 'Minimalistic coat in cotton-blend',
@@ -18,12 +18,22 @@ function App() {
     currency: '£'
   }
 
-  let priceNumber = parseFloat((item.price).toFixed(2));
+  let priceNumber = parseFloat((itemAnon.price).toFixed(2));
   let priceString = priceNumber.toLocaleString("en",{useGrouping: false, minimumFractionDigits: 2});
-  item.price = priceString;
+  itemAnon.price = priceString;
+  
+  
+  const itemObj = new item ( 
+    itemAnon.brand,
+    itemAnon.title,
+    itemAnon.description,
+    itemAnon.descriptionFull,
+    itemAnon.price,
+    itemAnon.currency
+  );
 
   //for use in one git repository
-  let isFunctional = true;
+  let isFunctional = false; 
 
   return (
     <>
@@ -34,7 +44,7 @@ function App() {
             <div className='highlight-overlay'></div>
           </div>
           <div className="window">
-            { isFunctional ? <ShopItemFunc item={item} /> : <ShopItemClass item={item} /> }
+            { isFunctional ? <ShopItemFunc item={itemAnon} /> : <ShopItemClass item={itemObj} /> }
           </div>
         </div>
     </>
