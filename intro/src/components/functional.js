@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const ShopItemFunc  = ({item}) => {
+const ShopItemFunc = ({item}) => {
     return (
         <>
             <div class="main-content">
