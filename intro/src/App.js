@@ -18,6 +18,13 @@ function App() {
     currency: '£'
   }
 
+  let priceNumber = parseFloat((item.price).toFixed(2));
+  let priceString = priceNumber.toLocaleString("en",{useGrouping: false, minimumFractionDigits: 2});
+  item.price = priceString;
+
+  //for use in one git repository
+  let isFunctional = true;
+
   return (
     <>
         <div className="container">
@@ -27,7 +34,7 @@ function App() {
             <div className='highlight-overlay'></div>
           </div>
           <div className="window">
-            <ShopItemClass item={item} />
+            { isFunctional ? <ShopItemFunc item={item} /> : <ShopItemClass item={item} /> }
           </div>
         </div>
     </>

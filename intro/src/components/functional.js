@@ -1,13 +1,11 @@
 import React from 'react';
 
+
 const ShopItemFunc  = ({item}) => {
-    let priceNumber = parseFloat((item.price).toFixed(2));
-    let priceString = priceNumber.toLocaleString("en",{useGrouping: false, minimumFractionDigits: 2});;
-    
     return (
         <>
             <div class="main-content">
-                <h2>{item.brand}</h2>
+                <h2>{item.brand} (functional)</h2>
                 <h1>{item.title}</h1>
                 <h3>{item.description}</h3>
                 <div class="description">
@@ -16,12 +14,13 @@ const ShopItemFunc  = ({item}) => {
                 <div class="highlight-window mobile"><div class="highlight-overlay"></div></div>
                 <div class="divider"></div>
                 <div class="purchase-info">
-                    <div class="price">{item.currency}{priceString}</div>
+                    <div class="price">{item.currency}{item.price}</div>
                     <button>Добавить в корзину</button>
                 </div>
             </div>
         </>
     );
 }
+
 
 export {ShopItemFunc};
